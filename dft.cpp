@@ -6,8 +6,6 @@ using namespace std;
 /*
 * struct declaration for n-child tree
 */
-
-
 struct node {
 	int key_value;
 	vector <node*> child; //to dynamically maintain the list of childs
@@ -26,7 +24,6 @@ private:
 	void add_child(node *&leaf);
 };
 
-
 int main() {
 	btree newTree; 
 	newTree.insert();
@@ -39,7 +36,6 @@ btree::btree() {
 	root = NULL;
 }
 
-
 void btree::insert() {	
 	int root_value;
 	cout << "Enter the value of the root: ";
@@ -49,14 +45,12 @@ void btree::insert() {
 	add_child(root); 
 }
 
-
 void btree::dfs(node* leaf) {
 	cout << leaf->key_value << "\t";
 	for (int i = 0; i < leaf->child.size(); i++) {
 		dfs(leaf->child[i]);
 	}
 }
-
 
 // recursively add new child
 void btree::add_child(node *&leaf){
@@ -75,17 +69,12 @@ void btree::add_child(node *&leaf){
 			newEntries = true;
 		}
 	}
-	
-	cout << "\n";
+	cout << "\n";	
 	
 	//recursive call
-
 	if (newEntries) {
 		for (int i = 0; i < leaf->child.size(); i++) {
 			add_child(leaf->child[i]);
 		}
 	}
-	
-	
 }
-
